@@ -11,12 +11,12 @@ include(external_deps)
 
 
 add_executable(${PROJECT_NAME}
-    src/bismika.cpp 
+    bismika.cpp 
     src/framework/PluginsListener.cpp
     src/framework/PathInformer.cpp
     src/framework/ExtendedFramework.cpp)
 
-target_include_directories(${PROJECT_NAME} PRIVATE 
+target_include_directories(${PROJECT_NAME} PUBLIC 
     include
     include/framework)
 
