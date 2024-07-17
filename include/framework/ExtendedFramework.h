@@ -17,7 +17,7 @@ class ExtendedFramework{
     ExtendedFramework();
     ~ExtendedFramework();
 
-    protected:
+    public:
     cppmicroservices::BundleContext ctx;
     
     private:

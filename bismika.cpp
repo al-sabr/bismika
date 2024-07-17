@@ -1,8 +1,9 @@
 #include <saucer/smartview.hpp>
 #include <saucer/webview.hpp>
 
-#include <framework/ExtendedFramework.h>
 #include <modules/InMemorySchemaHandler.h>
+
+#include <framework/ExtendedFramework.h>
 
 #include <embedded/all.hpp>
 
@@ -17,9 +18,13 @@ int main()
 
     //saucer::webview webview;
     saucer::smartview<saucer::default_serializer, InMemorySchemaHandler> webview;         // Instantiate smartview
-    webview.set_title("bismika framework"); // Set the window title to "Hello World!"
+
+    webview.set_dev_tools(true);
+    //webview.set_title("bismika framework"); // Set the window title to "Hello World!"
+    //webview.set_size(500, 600);
     webview.embed(saucer::embedded::all());
-    webview.set_size(500, 600);
+
+    webview.initBundleContext(&exFramework->ctx);
 
     webview.execute(R"js(
         const text = document.createElement('p');
@@ -29,7 +34,6 @@ int main()
     )js");
 
     webview.serve("src/index.html");
-    webview.set_dev_tools(true);
 
     //smartview.set_url("https://google.com"); // Navigate to google.com
     webview.show();                        // Show the smartview

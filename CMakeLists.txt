@@ -15,7 +15,7 @@ add_executable(${PROJECT_NAME}
     src/framework/PluginsListener.cpp
     src/framework/PathInformer.cpp
     src/framework/ExtendedFramework.cpp
-    src/modules/InMemorySchemaHandler.cpp)
+    include/modules/InMemorySchemaHandler.h)
 
 target_include_directories(${PROJECT_NAME} PUBLIC 
     include
