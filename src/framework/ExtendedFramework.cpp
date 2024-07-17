@@ -13,6 +13,9 @@ ExtendedFramework::ExtendedFramework(){
         return;
     }
 
+    // Retrieve the bundle context.
+    this->ctx = this->fw->GetBundleContext();
+    
     // finding and printing the current working directory.
     std::string path = PathInformer::abs_exe_directory();
     

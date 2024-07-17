@@ -17,6 +17,9 @@ class ExtendedFramework{
     ExtendedFramework();
     ~ExtendedFramework();
 
+    protected:
+    cppmicroservices::BundleContext ctx;
+    
     private:
     // Create a new framework with a default configuration.
     std::shared_ptr<cppmicroservices::Framework> fw = nullptr;

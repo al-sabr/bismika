@@ -14,11 +14,16 @@ add_executable(${PROJECT_NAME}
     bismika.cpp 
     src/framework/PluginsListener.cpp
     src/framework/PathInformer.cpp
-    src/framework/ExtendedFramework.cpp)
+    src/framework/ExtendedFramework.cpp
+    src/modules/InMemorySchemaHandler.cpp)
 
 target_include_directories(${PROJECT_NAME} PUBLIC 
     include
     include/framework)
+
+target_include_directories(${PROJECT_NAME} PRIVATE 
+    include/embedded
+    include/modules)
 
 target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_20)
 
