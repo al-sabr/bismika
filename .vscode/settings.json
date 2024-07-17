@@ -2,5 +2,16 @@
     "lldb.displayFormat": "auto",
     "lldb.showDisassembly": "auto",
     "lldb.dereferencePointers": true,
-    "lldb.consoleMode": "commands"
+    "lldb.consoleMode": "commands",
+    "files.associations": {
+        "optional": "cpp",
+        "functional": "cpp"
+    },
+    "terminal.integrated.env.linux": { // These lines are necessary since they are never inherited from the parents SSH connection. 
+        "DISPLAY":":10",
+        "QT_DEBUG_PLUGINS": "1"       
+	},
 }
+
+// localhost:10.0
+// /usr/lib/x86_64-linux-gnu/qt6/plugins
