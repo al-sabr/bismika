@@ -5,7 +5,7 @@
 FetchContent_Declare(
     saucer 
     GIT_REPOSITORY "https://github.com/saucer/saucer" 
-    GIT_TAG v2.3.0
+    GIT_TAG very-experimental
 )
 
 FetchContent_MakeAvailable(saucer)
