@@ -1,3 +1,4 @@
+#include "cppmicroservices/Bundle.h"
 #include "framework/PluginsListener.h"
 
 PluginsListener::PluginsListener(const std::shared_ptr<cppmicroservices::Framework>& fw, std::filesystem::path plugins_path){
@@ -11,17 +12,6 @@ PluginsListener::PluginsListener(const std::shared_ptr<cppmicroservices::Framewo
         std::cerr << "Invalid framework context" << std::endl;
     }
 
-    // Install all bundles contained in the shared libraries
-    // given as command line arguments.
-    /*
-    for (int i = 1; i < argc; ++i) {
-        try {
-        ctx.InstallBundles(argv[i]);
-        } catch (const std::exception& e) {
-        std::cerr << e.what() << std::endl;
-        }
-    }
-    */
     try {
         // Start the framwork itself.
         this->framework->Start();
@@ -31,15 +21,7 @@ PluginsListener::PluginsListener(const std::shared_ptr<cppmicroservices::Framewo
         // function. This is done here for simplicity, but is actually
         // bad practice.
         auto bundles = ctx.GetBundles();
-        /* auto iter = std::find_if(bundles.begin(), bundles.end(), [](Bundle& b) {
-            return b.GetSymbolicName() == "service_time_systemclock";
-        }); 
         
-        if (iter != bundles.end()) {
-            iter->Start();
-        }
-        */
-
         // Now start all bundles.
         for (auto& bundle : bundles) {
             bundle.Start();
@@ -61,7 +43,7 @@ void PluginsListener::watchPlugins(){
     // Add a folder to watch, and get the efsw::WatchID
     // It will watch the /tmp folder recursively ( the third parameter indicates that is recursive )
     // Reporting the files and directories changes to the instance of the listener
-    watchID = fileWatcher->addWatch(plugins_path, this, true);
+    watchID = fileWatcher->addWatch(plugins_path.c_str(), this, true);
 
     // Start watching asynchronously the directories
     fileWatcher->watch();
@@ -82,17 +64,27 @@ void PluginsListener::handleFileAction(efsw::WatchID watchid, const std::string&
                            std::string oldFilename ){
         switch ( action ) {
             case efsw::Actions::Add:
-                std::cout << "DIR (" << dir << ") FILE (" << filename << ") has event Added"
+            case efsw::Actions::Modified:
+                std::cout << "DIR (" << dir << ") FILE (" << filename << ") has event Added or Modified "
                           << std::endl;
+                try
+                {
+                    std::vector<cppmicroservices::Bundle> installedBundles = this->framework->GetBundleContext().InstallBundles(dir + filename);
+                    for(cppmicroservices::Bundle bundle : installedBundles)
+                        if(bundle.GetState() == cppmicroservices::Bundle::STATE_INSTALLED)
+                            bundle.Start();
+                }
+                catch (std::exception &exc)
+                {
+                    std::cerr << exc.what() << std::endl;;
+                }
+                
                 break;
             case efsw::Actions::Delete:
                 std::cout << "DIR (" << dir << ") FILE (" << filename << ") has event Delete"
                           << std::endl;
                 break;
-            case efsw::Actions::Modified:
-                std::cout << "DIR (" << dir << ") FILE (" << filename << ") has event Modified"
-                          << std::endl;
-                break;
+            
             case efsw::Actions::Moved:
                 std::cout << "DIR (" << dir << ") FILE (" << filename << ") has event Moved from ("
                           << oldFilename << ")" << std::endl;

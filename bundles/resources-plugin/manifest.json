@@ -1,0 +1,8 @@
+{
+    "bundle.symbolic_name" : "resources-plugin",
+    "bundle.version" : "1.0.0",
+    "bundle.activator" : true,
+    "bundle.name" : "Service Time SystemClock",
+    "bundle.description" : "This bundle is a dummy resources container.",
+    "service-component" : true
+}

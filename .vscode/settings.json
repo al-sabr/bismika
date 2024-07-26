@@ -83,13 +83,18 @@
         "thread": "cpp",
         "typeindex": "cpp",
         "typeinfo": "cpp",
-        "variant": "cpp"
+        "variant": "cpp",
+        "qwebengineview": "cpp",
+        "*.ipp": "cpp",
+        "coroutine": "cpp",
+        "latch": "cpp"
     },
     "terminal.integrated.env.linux": { // These lines are necessary since they are never inherited from the parents SSH connection. 
         "DISPLAY":":10",
         "QT_DEBUG_PLUGINS": "1"       
     },
     "C_Cpp.dimInactiveRegions": false,
+    "C_Cpp.errorSquiggles": "disabled",
 }
 
 // localhost:10.0
