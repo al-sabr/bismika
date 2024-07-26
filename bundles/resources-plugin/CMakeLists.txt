@@ -1,4 +1,4 @@
-project(resources_plugin LANGUAGES CXX VERSION 1.0)
+project(resources-plugin LANGUAGES CXX VERSION 1.0)
 
 find_package(CppMicroServices REQUIRED)
 
