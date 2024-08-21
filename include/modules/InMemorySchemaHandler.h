@@ -46,7 +46,7 @@ class InMemorySchemaHandler : public saucer::module{
     {
         this->ctx = ctx;
 
-        this->m_smartview->handle_scheme("dynamic", [this](const saucer::request &req){
+        this->m_smartview->handle_scheme("dynamic", [this](const saucer::request &req) -> saucer::scheme_handler::result_type{
 
                 std::vector<cppmicroservices::Bundle> bundles = this->ctx->GetBundles();
 
@@ -99,8 +99,8 @@ class InMemorySchemaHandler : public saucer::module{
                 }
 
                 return saucer::response{
+                    .data = saucer::stash<>::from({file.begin(), file.end()}), //saucer::make_stash(file),
                     .mime = mime,
-                    .data = saucer::stash<const std::uint8_t>::from({file.begin(), file.end()})
                 };
             }
         );

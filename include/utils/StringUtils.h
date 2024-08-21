@@ -25,7 +25,7 @@ namespace stringutils{
     {
         if (strs.size() == 0) return "";
         std::vector<char> res;
-        for (int i = 0; i < strs.size()-1; ++i)
+        for (uint i = 0; i < strs.size()-1; ++i)
         {
             for (auto c: strs[i]) res.push_back(c);
             for (auto c: delim) res.push_back(c);
