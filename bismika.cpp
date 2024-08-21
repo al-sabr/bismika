@@ -5,7 +5,7 @@
 
 #include <framework/ExtendedFramework.h>
 
-#include <embedded/all.hpp>
+//#include <embedded/all.hpp>
 
 ExtendedFramework * exFramework = nullptr;
 
@@ -18,18 +18,12 @@ int main(){
     saucer::smartview<saucer::default_serializer, InMemorySchemaHandler> webview;         // Instantiate smartview
 
     webview.initBundleContext(&exFramework->ctx);
-    webview.set_dev_tools(true);
+    webview.set_dev_tools(false);
     webview.set_title("bismika framework"); // Set the window title to "Hello World!"
-    webview.set_size(500, 600);
-    //webview.embed(saucer::embedded::all());
+    webview.set_size(1024, 768);
     
-    webview.execute(R"js(
-        
-    )js");
 
-    //webview.serve("bundle1/src/index.html", "dynamic");
     webview.set_url("dynamic://resources-plugin/src/index.html");
-    //webview.set_url("saucer:/src/index.html");
 
     saucer::webview::register_scheme("dynamic");
 

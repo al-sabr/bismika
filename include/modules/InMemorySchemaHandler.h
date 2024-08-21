@@ -13,7 +13,6 @@
 #include <QWebEngineUrlSchemeHandler>
 
 #include <saucer/modules/module.hpp>
-#include <saucer/scheme.hpp>
 
 #include <cppmicroservices/Bundle.h>
 #include <cppmicroservices/Framework.h>

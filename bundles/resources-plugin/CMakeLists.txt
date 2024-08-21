@@ -1,4 +1,4 @@
-project(resources-plugin LANGUAGES CXX VERSION 1.0)
+project(resources_plugin LANGUAGES CXX VERSION 1.0)
 
 find_package(CppMicroServices REQUIRED)
 
@@ -7,7 +7,11 @@ include(GenerateExportHeader)
 set(_bundle_name ${PROJECT_NAME})
 
 # Technically, this is not a bundle.
-set(_srcs src/ResourcesPluginActivator.cpp manifest.json)
+set(_srcs 
+  manifest.json
+  src/ResourcesPluginActivator.cpp
+  include/ResourcesPluginActivator.h
+)
 
 add_library(${PROJECT_NAME}
     ${_srcs}

@@ -2,7 +2,6 @@
 
 using namespace cppmicroservices;
 
-
 void ResourcesPluginActivator::Start(BundleContext ctx){
 }
 

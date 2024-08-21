@@ -1,5 +1,5 @@
 #include <cppmicroservices/BundleActivator.h>
-#include <resources-plugin_export.h>
+#include <resources_plugin_export.h>
 
 using namespace cppmicroservices;
 
