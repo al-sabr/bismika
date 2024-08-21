@@ -37,8 +37,9 @@ set_target_properties(${PROJECT_NAME} PROPERTIES CXX_STANDARD 20 CXX_EXTENSIONS 
 
 target_link_libraries(${PROJECT_NAME} PRIVATE saucer::saucer CppMicroServices efsw)
 
-set_property(TARGET ${PROJECT_NAME} PROPERTY COMPILE_WARNING_AS_ERROR OFF)
-#set(CMAKE_COMPILE_WARNING_AS_ERROR OFF)
+#set_property(TARGET ${PROJECT_NAME} PROPERTY COMPILE_WARNING_AS_ERROR OFF)
+
+set(CMAKE_COMPILE_WARNING_AS_ERROR OFF)
 
 if(CMAKE_BUILD_TOOL MATCHES "(msdev|devenv|nmake)")
     add_definitions(/W2)
