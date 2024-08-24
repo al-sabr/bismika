@@ -19,8 +19,6 @@ add_library(${PROJECT_NAME}
 
 message("RESOURCES ${_srcs}")
 
-add_custom_command(TARGET ${PROJECT_NAME} PRE_BUILD COMMAND cmake -E remove "${CMAKE_BINARY_DIR}/plugins/libresources_plugind.so")
-
 target_link_libraries(${PROJECT_NAME} CppMicroServices)
 
 target_include_directories(${PROJECT_NAME} PUBLIC

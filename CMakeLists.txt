@@ -46,3 +46,5 @@ if(CMAKE_BUILD_TOOL MATCHES "(msdev|devenv|nmake)")
 else()
     add_definitions(-Wall -Wno-dev)
 endif()
+
+add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD COMMAND cmake -E remove "${CMAKE_BINARY_DIR}/plugins/libresources_plugind.so")
