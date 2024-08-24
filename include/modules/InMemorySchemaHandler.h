@@ -52,7 +52,6 @@ class InMemorySchemaHandler : public saucer::module{
 
                	std::cout << "User requested url: " << req.url() << std::endl;
 
-                //std::vector<std::string> infos = this->splitString((char*)request.url().c_str(), (char*)"://");
                 std::vector<std::string> request = stringutils::split(req.url(), "://");
                 std::vector<std::string> paths = stringutils::split(request.at(1), "/");
                 std::string bundleName = paths.at(0); paths.erase(paths.begin());

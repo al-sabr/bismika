@@ -1,4 +1,4 @@
-project(resources-plugin LANGUAGES CXX VERSION 1.0)
+project(resources_plugin LANGUAGES CXX VERSION 1.0)
 
 find_package(CppMicroServices REQUIRED)
 
@@ -7,7 +7,6 @@ include(GenerateExportHeader)
 set(_bundle_name ${PROJECT_NAME})
 
 set(_srcs 
-  src/ResourcesPluginActivator.cpp
   include/ResourcesPluginActivator.h
 )
 
@@ -18,45 +17,45 @@ add_library(${PROJECT_NAME}
     ${_srcs}
   )
 
-  message("MSG ${_srcs}")
-add_custom_command(TARGET ${PROJECT_NAME} PRE_BUILD COMMAND cmake -E remove "${CMAKE_BINARY_DIR}/plugins/libresources-plugind.so")
+message("RESOURCES ${_srcs}")
+
+add_custom_command(TARGET ${PROJECT_NAME} PRE_BUILD COMMAND cmake -E remove "${CMAKE_BINARY_DIR}/plugins/libresources_plugind.so")
 
 target_link_libraries(${PROJECT_NAME} CppMicroServices)
-
-message("CMAKE_CURRENT_SOURCE_DIR = ${CMAKE_CURRENT_SOURCE_DIR}")
-message("CMAKE_CURRENT_BINARY_DIR = ${CMAKE_CURRENT_BINARY_DIR}")
 
 target_include_directories(${PROJECT_NAME} PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>/include
   $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>
-  $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>/${PROJECT_NAME}
 )
 
 generate_export_header(${PROJECT_NAME})
 
+#[[
 if(BUILD_SHARED_LIBS)
   set_target_properties(${PROJECT_NAME} PROPERTIES
     CXX_VISIBILITY_PRESET hidden
     VISIBILITY_INLINES_HIDDEN 1
     )
 endif()
+]]
 
 set_target_properties(${PROJECT_NAME} PROPERTIES LINKER_LANGUAGE CXX)
 
 set_property(TARGET ${PROJECT_NAME} APPEND PROPERTY US_BUNDLE_NAME ${_bundle_name})
 set_property(TARGET ${PROJECT_NAME} APPEND PROPERTY COMPILE_DEFINITIONS US_BUNDLE_NAME=${_bundle_name})
-#target_compile_definitions(${PROJECT_NAME} PUBLIC US_BUNDLE_NAME=${_bundle_name})
-#target_compile_definitions(${PROJECT_NAME} PUBLIC BUNDLE_NAME=${_bundle_name})
-#add_compile_definitions(US_BUNDLE_NAME=${_bundle_name})
+target_compile_definitions(${PROJECT_NAME} PUBLIC US_BUNDLE_NAME=${_bundle_name})
+target_compile_definitions(${PROJECT_NAME} PUBLIC BUNDLE_NAME=${_bundle_name})
+add_compile_definitions(US_BUNDLE_NAME=${_bundle_name})
+add_compile_definitions(BUNDLE_NAME=${_bundle_name})
 #[[]]
 
 usFunctionEmbedResources(TARGET ${_bundle_name}
   WORKING_DIRECTORY
-  ${CMAKE_CURRENT_SOURCE_DIR} 
+    ${CMAKE_CURRENT_SOURCE_DIR} 
   FILES
-  manifest.json
+    manifest.json
   ZIP_ARCHIVES
-  site.zip
+    site.zip
   )
 
 

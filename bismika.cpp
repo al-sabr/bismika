@@ -18,12 +18,12 @@ int main(){
     saucer::smartview<saucer::default_serializer, InMemorySchemaHandler> webview;         // Instantiate smartview
 
     webview.initBundleContext(&exFramework->ctx);
-    webview.set_dev_tools(true);
+    //webview.set_dev_tools(true);
     webview.set_title("bismika framework"); // Set the window title to "Hello World!"
     webview.set_size(768, 768);
     
 
-    webview.set_url("dynamic://resources-plugin/src/index.html");
+    webview.set_url("dynamic://resources_plugin/src/index.html");
 
     webview.show();                        // Show the smartview
     webview.run();                         // And finally enter the run-loop.

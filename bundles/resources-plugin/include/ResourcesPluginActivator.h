@@ -1,14 +1,22 @@
 #include <cppmicroservices/BundleActivator.h>
+#include <resources_plugin_export.h>
 
 using namespace cppmicroservices;
 
-class ResourcesPluginActivator : public BundleActivator
-{
-    public:
-        ResourcesPluginActivator();
-        ~ResourcesPluginActivator();
-        void Start(BundleContext ctx);
-        void Stop(BundleContext);
-};
+namespace {
+
+    class ResourcesPluginActivator : public BundleActivator
+    {
+        public:
+            void Start(BundleContext ctx){
+                std::cout << "Bundle started";
+            }
+
+            void Stop(BundleContext){
+                std::cout << "Bundle stopped";
+            }
+    };
+
+}
 
 CPPMICROSERVICES_EXPORT_BUNDLE_ACTIVATOR(ResourcesPluginActivator)
