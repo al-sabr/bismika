@@ -11,7 +11,7 @@ include(external_deps)
 add_subdirectory(bundles)
 
 add_executable(${PROJECT_NAME}
-    bismika.cpp 
+    bismika.cpp
     src/framework/PluginsListener.cpp
     src/framework/PathInformer.cpp
     src/framework/ExtendedFramework.cpp
