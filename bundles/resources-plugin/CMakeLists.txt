@@ -6,7 +6,7 @@ include(GenerateExportHeader)
 
 set(_bundle_name ${PROJECT_NAME})
 
-set(_srcs 
+set(_srcs
   include/ResourcesPluginActivator.h
 )
 
@@ -43,11 +43,6 @@ set_target_properties(${PROJECT_NAME} PROPERTIES LINKER_LANGUAGE CXX)
 
 set_property(TARGET ${PROJECT_NAME} APPEND PROPERTY US_BUNDLE_NAME ${_bundle_name})
 set_property(TARGET ${PROJECT_NAME} APPEND PROPERTY COMPILE_DEFINITIONS US_BUNDLE_NAME=${_bundle_name})
-target_compile_definitions(${PROJECT_NAME} PUBLIC US_BUNDLE_NAME=${_bundle_name})
-target_compile_definitions(${PROJECT_NAME} PUBLIC BUNDLE_NAME=${_bundle_name})
-add_compile_definitions(US_BUNDLE_NAME=${_bundle_name})
-add_compile_definitions(BUNDLE_NAME=${_bundle_name})
-#[[]]
 
 usFunctionEmbedResources(TARGET ${_bundle_name}
   WORKING_DIRECTORY
