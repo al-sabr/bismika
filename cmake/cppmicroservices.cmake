@@ -30,14 +30,13 @@ function(GenerateService _name _args)
         endforeach()
     endif()
     target_link_libraries(${_name} CppMicroServices)
-    set_target_properties(${_name} PROPERTIES
-            OUTPUT_NAME ${_name}
-            )
+    set_target_properties(${_name} PROPERTIES OUTPUT_NAME ${_name})
 
     set_target_properties(${PROJECT_NAME} PROPERTIES
          RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/plugins)
     set_target_properties(${PROJECT_NAME} PROPERTIES
-            LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/plugins)
+        LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/plugins)
     set_target_properties(${PROJECT_NAME} PROPERTIES
-            ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/plugins)
+        ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/plugins)
+
 endfunction()
