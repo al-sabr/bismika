@@ -34,7 +34,10 @@ function(GenerateService _name _args)
             OUTPUT_NAME ${_name}
             )
 
-    usFunctionAddResources(TARGET ${_name} BUNDLE_NAME ${_name} WORKING_DIRECTORY ../resources FILES manifest.json)
-    usFunctionEmbedResources(TARGET ${_name})
-
+    set_target_properties(${PROJECT_NAME} PROPERTIES
+         RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/plugins)
+    set_target_properties(${PROJECT_NAME} PROPERTIES
+            LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/plugins)
+    set_target_properties(${PROJECT_NAME} PROPERTIES
+            ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/plugins)
 endfunction()
