@@ -1,9 +1,5 @@
 project(resources_plugin LANGUAGES CXX VERSION 1.0)
 
-find_package(CppMicroServices REQUIRED)
-
-include(GenerateExportHeader)
-
 set(_bundle_name ${PROJECT_NAME})
 
 GenerateService(${_bundle_name} include/ResourcesPluginActivator.h)

@@ -7,6 +7,9 @@ list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
 include(external_deps)
 
+find_package(CppMicroServices REQUIRED)
+
+include(GenerateExportHeader)
 # --------------------------------------------------------------------------------------------------------
 # Create executable
 # --------------------------------------------------------------------------------------------------------
@@ -44,7 +47,7 @@ else()
     add_definitions(-Wall -Wno-dev)
 endif()
 
-add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD COMMAND cmake -E remove "${CMAKE_BINARY_DIR}/plugins/libresources_plugind.so")
+add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD COMMAND cmake -E remove "${CMAKE_BINARY_DIR}/plugins/libresources_plugin.so")
 
 
 # Dynamic Shared libraries.

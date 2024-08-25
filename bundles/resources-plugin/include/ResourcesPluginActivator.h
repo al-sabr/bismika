@@ -8,11 +8,11 @@ using namespace cppmicroservices;
     class ResourcesPluginActivator : public BundleActivator
     {
         public:
-            void Start(BundleContext ctx){
+            void Start(cppmicroservices::BundleContext context) override {
                 std::cout << "Bundle started";
             }
 
-            void Stop(BundleContext){
+            void Stop(BundleContext) override {
                 std::cout << "Bundle stopped";
             }
     };
