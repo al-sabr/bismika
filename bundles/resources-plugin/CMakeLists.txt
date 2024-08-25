@@ -11,14 +11,9 @@ target_include_directories(${PROJECT_NAME} PUBLIC
 
 usFunctionEmbedResources(TARGET ${_bundle_name}
   WORKING_DIRECTORY
-    ${CMAKE_CURRENT_SOURCE_DIR}
+    resources
+  FILES
+    manifest.json
   ZIP_ARCHIVES
-    resources/site.zip
+    site.zip
   )
-
-set_target_properties(${PROJECT_NAME} PROPERTIES
-         RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/plugins)
-set_target_properties(${PROJECT_NAME} PROPERTIES
-         LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/plugins)
-set_target_properties(${PROJECT_NAME} PROPERTIES
-         ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/plugins)
