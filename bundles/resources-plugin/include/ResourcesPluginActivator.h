@@ -3,7 +3,7 @@
 
 using namespace cppmicroservices;
 
-namespace {
+//namespace {
 
     class ResourcesPluginActivator : public BundleActivator
     {
@@ -17,6 +17,6 @@ namespace {
             }
     };
 
-}
+//}
 
 CPPMICROSERVICES_EXPORT_BUNDLE_ACTIVATOR(ResourcesPluginActivator)
