@@ -13,7 +13,7 @@ usFunctionEmbedResources(TARGET ${_bundle_name}
   WORKING_DIRECTORY
     ${CMAKE_CURRENT_SOURCE_DIR}
   ZIP_ARCHIVES
-    site.zip
+    resources/site.zip
   )
 
 set_target_properties(${PROJECT_NAME} PROPERTIES
