@@ -3,7 +3,7 @@
 
 using namespace cppmicroservices;
 
-//namespace {
+namespace bismika::plugins{
 
     class ResourcesPluginActivator : public BundleActivator
     {
@@ -17,6 +17,6 @@ using namespace cppmicroservices;
             }
     };
 
-//}
+}
 
-CPPMICROSERVICES_EXPORT_BUNDLE_ACTIVATOR(ResourcesPluginActivator)
+CPPMICROSERVICES_EXPORT_BUNDLE_ACTIVATOR(bismika::plugins::ResourcesPluginActivator)
