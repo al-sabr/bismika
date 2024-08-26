@@ -22,8 +22,9 @@ ExtendedFramework::ExtendedFramework(){
     // finding and printing the current working directory.
     std::string path = PathInformer::abs_exe_directory();
     
-    std::filesystem::path plugins_path = path + "/plugins";
-    std::vector<std::string> init_plugins = {path + "/plugins" + "/libfractal_plugin.so", path + "/plugins" + "/libresources_plugin.so"};
+    std::string initial_plugins_folder = path + "/plugins";
+    std::filesystem::path plugins_path = initial_plugins_folder;
+    std::vector<std::string> init_plugins = {initial_plugins_folder + "/libfractal_plugin.so", initial_plugins_folder + "/libresources_plugin.so"};
     std::filesystem::file_status status = std::filesystem::status(plugins_path);
 
     if(!std::filesystem::is_directory(status))

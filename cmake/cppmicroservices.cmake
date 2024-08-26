@@ -39,6 +39,13 @@ function(GenerateService _name _args)
     $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>
     )
 
+    if(BUILD_SHARED_LIBS)
+    set_target_properties(${_name} PROPERTIES
+        CXX_VISIBILITY_PRESET hidden
+        VISIBILITY_INLINES_HIDDEN 1
+        )
+    endif()
+
     set_target_properties(${PROJECT_NAME} PROPERTIES
          RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/plugins)
     set_target_properties(${PROJECT_NAME} PROPERTIES
