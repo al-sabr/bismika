@@ -4,8 +4,8 @@
 
 FetchContent_Declare(
     CppMicroServices 
-    GIT_REPOSITORY "https://github.com/CppMicroServices/CppMicroServices" 
-    GIT_TAG development
+    GIT_REPOSITORY "https://github.com/al-sabr/CppMicroServices" 
+    GIT_TAG bundle-registry-bug-embedded-manifest
 )
 
 FetchContent_MakeAvailable(CppMicroServices)
