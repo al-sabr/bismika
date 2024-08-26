@@ -5,8 +5,6 @@
 
 #include <framework/ExtendedFramework.h>
 
-//#include <embedded/all.hpp>
-
 ExtendedFramework * exFramework = nullptr;
 
 int main(){

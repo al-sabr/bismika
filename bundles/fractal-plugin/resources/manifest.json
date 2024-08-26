@@ -1,0 +1,7 @@
+{
+    "bundle.symbolic_name" : "fractal_plugin",
+    "bundle.activator" : true,
+    "bundle.version" : "1.0.0",
+    "bundle.name" : "Fractal Initialization Bundle",
+    "bundle.description" : "This bundle will inititialize important part of the application."
+}
