@@ -1,22 +1,25 @@
+#ifndef RESOURCESPLUGINSACTIVATOR_HPP
+#define RESOURCESPLUGINSACTIVATOR_HPP
+
 #include <cppmicroservices/BundleActivator.h>
 #include <resources_plugin_export.h>
 
 using namespace cppmicroservices;
 
-namespace bismika::plugins{
+namespace bismika{
 
-    class ResourcesPluginActivator : public BundleActivator
-    {
-        public:
-            void Start(cppmicroservices::BundleContext context) override {
-                std::cout << "Bundle started";
-            }
+    namespace plugins{
 
-            void Stop(BundleContext) override {
-                std::cout << "Bundle stopped";
-            }
-    };
+        class ResourcesPluginActivator final : public BundleActivator
+        {
+            public:
+                ResourcesPluginActivator() override;
+                ~ResourcesPluginActivator() override;
 
+                void Start(cppmicroservices::BundleContext context) override;
+                void Stop(BundleContext) override;
+        };
+    }
 }
 
-CPPMICROSERVICES_EXPORT_BUNDLE_ACTIVATOR(bismika::plugins::ResourcesPluginActivator)
+#endif

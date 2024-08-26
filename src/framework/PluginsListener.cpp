@@ -71,7 +71,7 @@ void PluginsListener::handleFileAction(efsw::WatchID watchid, const std::string&
                 {
                     std::vector<cppmicroservices::Bundle> installedBundles = this->framework->GetBundleContext().InstallBundles(dir + filename);
                     for(cppmicroservices::Bundle bundle : installedBundles)
-                        //if(bundle.GetState() == cppmicroservices::Bundle::STATE_INSTALLED)
+                        if(bundle.GetState() == cppmicroservices::Bundle::STATE_INSTALLED)
                             bundle.Start();
                 }
                 catch (std::exception &exc)

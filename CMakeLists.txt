@@ -47,8 +47,5 @@ else()
     add_definitions(-Wall -Wno-dev)
 endif()
 
-add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD COMMAND cmake -E remove "${CMAKE_BINARY_DIR}/plugins/libresources_plugin.so")
-
-
 # Dynamic Shared libraries.
 add_subdirectory(bundles)
