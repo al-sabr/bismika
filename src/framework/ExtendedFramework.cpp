@@ -16,6 +16,15 @@ ExtendedFramework::ExtendedFramework(){
     // Retrieve the bundle context.
     this->ctx = this->fw->GetBundleContext();
     
+    try
+    {
+        // Start the framwork itself.
+        fw->Start();
+    } catch (std::exception const& e)
+    {
+        std::cerr << e.what() << std::endl;
+    }
+
     // finding and printing the current working directory.
     std::string path = PathInformer::abs_exe_directory();
     
@@ -30,6 +39,7 @@ ExtendedFramework::ExtendedFramework(){
 }
 
 ExtendedFramework::~ExtendedFramework(){
+    fw->Stop();
     fw = nullptr;
     delete pl;
 }

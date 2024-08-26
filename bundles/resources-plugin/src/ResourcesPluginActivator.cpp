@@ -10,7 +10,7 @@ namespace bismika{
 
         ResourcesPluginActivator::~ResourcesPluginActivator(){}
 
-        void ResourcesPluginActivator::ResourcesPluginActivator::Start(cppmicroservices::BundleContext context){
+        void ResourcesPluginActivator::Start(cppmicroservices::BundleContext context){
             std::cout << "Bundle started";
         }
 
