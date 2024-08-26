@@ -44,7 +44,7 @@ set(CMAKE_COMPILE_WARNING_AS_ERROR OFF)
 if(CMAKE_BUILD_TOOL MATCHES "(msdev|devenv|nmake)")
     add_definitions(/W2)
 else()
-    add_definitions(-Wall -Wno-dev)
+    add_definitions(-Wall -Wno-dev -Werror=dangling-reference)
 endif()
 
 add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD COMMAND cmake -E remove "${CMAKE_BINARY_DIR}/plugins/libresources_plugin.so")
