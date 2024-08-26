@@ -5,7 +5,7 @@
 FetchContent_Declare(
     CppMicroServices 
     GIT_REPOSITORY "https://github.com/al-sabr/CppMicroServices" 
-    GIT_TAG bundleresource-prefix-bug # Pull Request #1037
+    GIT_TAG bundle-resource-prefix-bug+bundleregistry-embedded-manifest-bug # Pull Request #1036 & #1037
 )
 
 FetchContent_MakeAvailable(CppMicroServices)

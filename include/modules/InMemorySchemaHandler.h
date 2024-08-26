@@ -83,7 +83,7 @@ class InMemorySchemaHandler : public saucer::module{
                         std::cout << "service-component found" << std::endl;
                     }
                     
-                    BundleResource componentResource = foundBundle.GetResource(filePath);
+                    BundleResource componentResource = foundBundle.GetResource(filePath, true);
                     
                     if (!componentResource.IsValid() || componentResource.IsDir()){
                         std::string msg= R"html(<!DOCTYPE html> <html> <body> <h1>Invalid resource file</h1> </body>)html";
