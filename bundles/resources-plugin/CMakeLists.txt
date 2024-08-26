@@ -18,7 +18,7 @@ if(BUILD_SHARED_LIBS)
 endif()
 ]]
 
-file(REMOVE "${CMAKE_BINARY_DIR}/plugins/lib${PROJECT_NAME}.so")
+#file(REMOVE "${CMAKE_BINARY_DIR}/plugins/lib${PROJECT_NAME}.so")
 
 usFunctionEmbedResources(TARGET ${_bundle_name}
   WORKING_DIRECTORY
