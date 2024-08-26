@@ -10,7 +10,7 @@ namespace bismika{
 
     namespace plugins{
 
-        class ResourcesPluginActivator final : public BundleActivator
+        class RESOURCES_PLUGIN_EXPORT ResourcesPluginActivator final : public BundleActivator
         {
             public:
                 ResourcesPluginActivator() override;

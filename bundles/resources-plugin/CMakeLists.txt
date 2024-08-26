@@ -4,11 +4,6 @@ set(_bundle_name ${PROJECT_NAME})
 
 GenerateService(${_bundle_name} src/ResourcesPluginActivator.cpp include/ResourcesPluginActivator.h)
 
-target_include_directories(${PROJECT_NAME} PUBLIC
-  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>/include
-  $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>
-)
-
 #[[
 if(BUILD_SHARED_LIBS)
   set_target_properties(${PROJECT_NAME} PROPERTIES

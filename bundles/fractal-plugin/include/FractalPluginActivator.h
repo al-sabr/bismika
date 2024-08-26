@@ -10,7 +10,7 @@ namespace bismika{
 
     namespace plugins{
 
-        class FractalPluginActivator final : public BundleActivator
+        class FRACTAL_PLUGIN_EXPORT FractalPluginActivator final : public BundleActivator
         {
             public:
                 ResourcesPluginActivator() override;
