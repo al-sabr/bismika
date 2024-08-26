@@ -2,7 +2,7 @@ project(resources_plugin LANGUAGES CXX VERSION 1.0)
 
 set(_bundle_name ${PROJECT_NAME})
 
-GenerateService(${_bundle_name} include/ResourcesPluginActivator.cpp)
+GenerateService(${_bundle_name} include/ResourcesPluginActivator.cpp include/ResourcesPluginActivator.h)
 
 target_include_directories(${PROJECT_NAME} PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>/include
